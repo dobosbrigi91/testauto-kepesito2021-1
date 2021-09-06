@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 try:
     options = Options()
-    options.headless = True
+    options.headless = False
 
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     driver.get('https://ambitious-sky-0d3acbd03.azurestaticapps.net/k2.html')
