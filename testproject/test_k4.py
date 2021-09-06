@@ -3,6 +3,7 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
+
 try:
     options = Options()
     options.headless = False
@@ -17,15 +18,16 @@ try:
     kalkulacio_button = driver.find_element_by_id('submit')
     eredmeny = driver.find_element_by_id('result')
 
+
     # * Helyesen betöltődik az applikáció:
     #     * Megjelenik az ABCs műveleti tábla, pontosan ezzel a szöveggel:
     #       * !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 
 
     def test_tc1():
-        muveleti_tabla = str('!"#$' + "%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~")
+        muveleti_tabla = str(
+            '!"#$' + "%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~")
         assert tabla == muveleti_tabla
-
 
     # * Megjelenik egy érvényes művelet:
     def test_tc2():
@@ -34,7 +36,6 @@ try:
         #     * `op` mező vagy + vagy - karaktert tartlamaz
         assert op_mezo == '+' or '-'
         #     * `num` mező egy egész számot tartalamaz
-
 
     # * Gombnyomásra helyesen végződik el a random művelet a fenti ABCs tábla alapján:
 
